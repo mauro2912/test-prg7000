@@ -31,48 +31,48 @@ resource "aws_iam_role" "ec2-role-challenge1" {
   )
 }
 
-resource "aws_iam_role" "flow-logs-role" {
-  name = "flows-logs-role"
-  assume_role_policy = jsonencode(
-    {
-      "Version" : "2012-10-17",
-      "Statement" : [
-        {
-          "Sid" : "",
-          "Effect" : "Allow",
-          "Principal" : {
-            "Service" : "vpc-flow-logs.amazonaws.com"
-          },
-          "Action" : "sts:AssumeRole"
-        }
-      ]
-    }
-  )  
-}
-
-resource "aws_iam_role_policy" "role-policy-flow-logs" {
-  name = "role-policy-flow-logs"
-  role = aws_iam_role.flow-logs-role.id 
-  policy = jsonencode(
-    {
-      "Version": "2012-10-17",
-      "Statement": [
-        {
-          "Action":[
-            "logs:CreateLogGroup",
-            "logs:CreateLogStream",
-            "logs:PutLogEvent",
-            "logs:DescribeLogGroups",
-            "logs:DescribeLogStreams"
-          ],
-          "Effect": "Allow",
-          "Resource": "*"
-          #"Resource": "${nombre de la variable}"
-        }
-      ]
-    }
-  ) 
-}
+#resource "aws_iam_role" "flow-logs-role" {
+#  name = "flows-logs-role"
+#  assume_role_policy = jsonencode(
+#    {
+#      "Version" : "2012-10-17",
+#      "Statement" : [
+#        {
+#          "Sid" : "",
+#          "Effect" : "Allow",
+#          "Principal" : {
+#            "Service" : "vpc-flow-logs.amazonaws.com"
+#          },
+#          "Action" : "sts:AssumeRole"
+#        }
+#      ]
+#    }
+#  )  
+#}
+#
+#resource "aws_iam_role_policy" "role-policy-flow-logs" {
+#  name = "role-policy-flow-logs"
+#  role = aws_iam_role.flow-logs-role.id 
+#  policy = jsonencode(
+#    {
+#      "Version": "2012-10-17",
+#      "Statement": [
+#        {
+#          "Action":[
+#            "logs:CreateLogGroup",
+#            "logs:CreateLogStream",
+#            "logs:PutLogEvent",
+#            "logs:DescribeLogGroups",
+#            "logs:DescribeLogStreams"
+#          ],
+#          "Effect": "Allow",
+#          "Resource": "*"
+#          #"Resource": "${nombre de la variable}"
+#        }
+#      ]
+#    }
+#  ) 
+#}
 
 resource "aws_iam_instance_profile" "instance-profile-challenge1" {
   name = "EC2-profile"
