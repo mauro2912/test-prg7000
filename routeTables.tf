@@ -4,8 +4,8 @@ resource "aws_route_table" "private-rt-challenge1" {
   depends_on = [aws_nat_gateway.nat-gateway-challenge1]
 
   route {
-    cidr_block = "0.0.0.0/0"
-    #nat_gateway_id = aws_nat_gateway.nat-gateway-challenge1[0].id
+    cidr_block     = "0.0.0.0/0"
+    nat_gateway_id = aws_nat_gateway.nat-gateway-challenge1.id
   }
 
   tags = {

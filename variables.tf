@@ -88,7 +88,7 @@ variable "ec2-type-challenge1" {
 variable "ec2-ami-challenge1" {
   description = "ami to set to every ec2 instances"
   type        = string
-  default     = "ami-08c40ec9ead489470"
+  default     = "ami-0557a15b87f6559cf"
 }
 
 variable "enabled" {
