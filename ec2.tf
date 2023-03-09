@@ -6,7 +6,7 @@ resource "aws_instance" "public-ec2-instances-challenge1" {
   # vpc_security_group_ids = [aws_security_group.sg-public-challenge1.id]
   security_groups = [aws_security_group.sg-public-challenge1.id]
   #key_name        = aws_key_pair.keypair-challenge1.key_name
-  user_data       = local.user-data
+  user_data = local.user-data
   #iam_instance_profile   = aws_iam_instance_profile.instance-profile-challenge1.name
   #ebs_optimized = true
   #monitoring    = true

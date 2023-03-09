@@ -1,5 +1,5 @@
 resource "aws_default_security_group" "default" {
-  vpc_id      = aws_vpc.vpc-challenge1.id
+  vpc_id = aws_vpc.vpc-challenge1.id
 }
 
 resource "aws_security_group" "sg-private-challenge1" {
@@ -11,7 +11,7 @@ resource "aws_security_group" "sg-private-challenge1" {
     to_port         = -1
     protocol        = "icmp"
     security_groups = [aws_security_group.sg-public-challenge1.id]
-    description = "Enable ping from public sg"
+    description     = "Enable ping from public sg"
   }
   ingress {
     from_port       = 22
